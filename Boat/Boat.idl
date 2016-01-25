@@ -1,0 +1,29 @@
+// Boat.idl : Boat.exe 的类型库源
+
+// 此文件将由 MIDL 编译器处理以产生
+// 类型库(Boat.tlb)。
+
+[ uuid(B7349A16-92B3-4CE1-87C4-8B9569CC846C), version(1.0) ]
+library Boat
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	//  CBoatDoc 的主调度接口
+	
+	[ uuid(80DDB29D-E69E-4BAA-A0A5-1AE8B9A885AA) ]
+	dispinterface IBoat
+	{
+		properties:
+			
+		methods:
+	};
+
+	//  CBoatDoc 的类信息
+	
+	[ uuid(AB44F51E-F1A4-4F0E-86A0-B376B1E7D588) ]
+	coclass CBoatDoc
+	{
+		[default] dispinterface IBoat;
+	};
+};
