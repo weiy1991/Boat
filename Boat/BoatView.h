@@ -4,6 +4,14 @@
 
 #pragma once
 
+#include "CApplication.h"
+#include "CFont0.h"
+#include "CRange.h"
+#include "CWorkbook.h"
+#include "CWorkbooks.h"
+#include "CWorksheet.h"
+#include "CWorksheets.h"
+
 
 class CBoatView : public CView
 {
@@ -14,6 +22,17 @@ protected: // 仅从序列化创建
 // 特性
 public:
 	CBoatDoc* GetDocument() const;
+
+	//定义接口类变量 
+	CApplication app;
+	CWorkbook book;
+	CWorkbooks books;
+	CWorksheet sheet;
+	CWorksheets sheets;
+	CRange range;
+	CFont0 font;
+	CRange cols;
+	LPDISPATCH lpDisp;
 
 // 操作
 public:
