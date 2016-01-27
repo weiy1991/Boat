@@ -60,6 +60,18 @@
     <ClInclude Include="CWorksheets.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="TreeListView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FileListView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DataListView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SplitterView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Boat.cpp">
@@ -75,6 +87,18 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="BoatView.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TreeListView.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FileListView.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DataListView.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SplitterView.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

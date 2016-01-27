@@ -7,6 +7,11 @@
 
 #include "MainFrm.h"
 
+#include "DataListView.h"
+#include "FileListView.h"
+#include "TreeListView.h"
+#include "SplitterView.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -69,10 +74,43 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT /*lpcs*/,
 	CCreateContext* pContext)
 {
-	return m_wndSplitter.Create(this,
+	if (!m_wndSplitter.CreateStatic(this, 1, 3))
+	{
+		TRACE0("Failed to create splitter window\n");
+		return FALSE;
+	}
+
+	// Get the client rect first for calc left pane size
+	CRect rect;
+	GetClientRect(&rect);
+
+	// create the left tree view first.
+	if (!m_wndSplitter.CreateView(0, 0, RUNTIME_CLASS(CTreeListView), CSize(rect.Width() / 4, 0), pContext))
+	{
+		TRACE0("Failed to create tree list view\n");
+		return FALSE;
+	}
+
+	if (!m_wndSplitter.CreateView(0, 1, RUNTIME_CLASS(CFileListView), CSize(rect.Width() / 4, 0), pContext))
+	{
+		TRACE0("Failed to create file list view\n");
+		return FALSE;
+	}
+
+	if (!m_wndSplitter.CreateView(0, 2, RUNTIME_CLASS(CDataListView), CSize(0, 0), pContext))
+	{
+		TRACE0("Failed to create data list view\n");
+		return FALSE;
+	}
+
+	// Set the tree view as the active view
+	SetActiveView((CView*)m_wndSplitter.GetPane(0, 0));
+
+	return TRUE;
+	/*return m_wndSplitter.Create(this,
 		2, 2,               // TODO:  调整行数和列数
 		CSize(10, 10),      // TODO:  调整最小窗格大小
-		pContext);
+		pContext);*/
 }
 
 BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
